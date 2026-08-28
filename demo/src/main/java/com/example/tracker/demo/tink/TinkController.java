@@ -21,8 +21,8 @@ public class TinkController
     TinkTokenResponse tokenResponse = tinkService.exchangeCodeForToken(code);
     TinkTransactionResponse transactionsResponse = tinkService.getTransactions(tokenResponse.getAccess_token());
 
-    System.out.println("First transaction: " + transactionsResponse.getTransactions().get(0).getDescriptions().getDisplay());
+    tinkService.saveTransactions(transactionsResponse);
 
-    return "Fetched " + transactionsResponse.getTransactions().size() + " transactions";
+    return "Saved " + transactionsResponse.getTransactions().size() + " transactions";
   }
 }
