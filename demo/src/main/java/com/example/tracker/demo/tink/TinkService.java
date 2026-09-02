@@ -82,10 +82,24 @@ public class TinkService
     return transaction;
   }
   public void saveTransactions(TinkTransactionResponse transactionResponse){
-    for(TinkTransaction transaction : transactionResponse.getTransactions()){
-      Transaction transaction1 = mapToTransaction(transaction);
-      transactionRepository.save(transaction1);
-    }
+    for (TinkTransaction tinkTransaction : transactionResponse.getTransactions()) {
+      Transaction transaction = mapToTransaction(tinkTransaction);
 
+      boolean alreadyExists = transactionRepository.existsByDescriptionAndDateAndAmount(
+          transaction.getDescription(),
+          transaction.getDate(),
+          transaction.getAmount()
+      );
+
+      if (!alreadyExists) {
+        transactionRepository.save(transaction);
+      }
+    }
+  }
+  public void getTransactions(TinkTransactionResponse transactionResponse){
+    for (TinkTransaction transaction : transactionResponse.getTransactions()){
+      
+      transactionRepository.findAll();
+    }
   }
 }
