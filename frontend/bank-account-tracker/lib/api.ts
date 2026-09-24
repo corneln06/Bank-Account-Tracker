@@ -1,4 +1,5 @@
 import { Platform } from 'react-native';
+import Constants from 'expo-constants';
 
 export interface Transaction {
   id: number;
@@ -11,6 +12,8 @@ export interface Transaction {
 }
 
 function defaultBaseUrl(): string {
+  const host = Constants.expoConfig?.hostUri?.split(':')[0];
+  if (host) return `http://${host}:8080`;
   if (Platform.OS === 'android') return 'http://10.0.2.2:8080';
   return 'http://localhost:8080';
 }
