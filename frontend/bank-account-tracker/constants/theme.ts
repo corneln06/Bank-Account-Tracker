@@ -16,6 +16,11 @@ export const Colors = {
     icon: '#687076',
     tabIconDefault: '#687076',
     tabIconSelected: tintColorLight,
+    card: '#f7f8f9',
+    border: '#e3e5e7',
+    muted: '#687076',
+    success: '#0ca30c',
+    danger: '#d03b3b',
   },
   dark: {
     text: '#ECEDEE',
@@ -24,8 +29,24 @@ export const Colors = {
     icon: '#9BA1A6',
     tabIconDefault: '#9BA1A6',
     tabIconSelected: tintColorDark,
+    card: '#1e2021',
+    border: '#2c2f31',
+    muted: '#9BA1A6',
+    success: '#0ca30c',
+    danger: '#e66767',
   },
 };
+
+export const CategoryPalette: { light: string; dark: string }[] = [
+  { light: '#2a78d6', dark: '#3987e5' },
+  { light: '#eb6834', dark: '#d95926' },
+  { light: '#1baf7a', dark: '#199e70' },
+  { light: '#eda100', dark: '#c98500' },
+  { light: '#e87ba4', dark: '#d55181' },
+  { light: '#008300', dark: '#008300' },
+  { light: '#4a3aa7', dark: '#9085e9' },
+  { light: '#e34948', dark: '#e66767' },
+];
 
 export const Fonts = Platform.select({
   ios: {
